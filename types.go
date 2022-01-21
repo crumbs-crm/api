@@ -58,24 +58,27 @@ type Person struct {
 // Some examples of possible events include a meeting, a club event,
 // grabbing coffee, a birthday party, etc.
 type Event struct {
-	ID    string      `bson:"_id"`   // Event / Object ID
-	Owner string      `bson:"owner"` // User ID of the owner
-	Name  string      `bson:"name"`  // Name of the event
-	Date  string      `bson:"date"`  // Date of the event
-	Notes string      `bson:"notes"` // Notes about the event
-	Attrs []Attribute `bson:"attrs"` // Additional, user-defined attributes
+	ID       string      `bson:"_id"`                // Event / Object ID
+	Owner    string      `bson:"owner"`              // User ID of the owner
+	Name     string      `bson:"name"`               // Name of the event
+	Location string      `bson:"location,omitempty"` // Location of the event
+	Date     string      `bson:"date,omitempty"`     // Date of the event
+	Notes    string      `bson:"notes"`              // Notes about the event
+	Attrs    []Attribute `bson:"attrs"`              // Additional, user-defined attributes
 }
 
 // JobApplication represents a job application defined by a user (and specific to that user).
 // A job application can be associated with a person, an organization, or both.
 type JobApplication struct {
-	ID          string      `bson:"_id"`         // JobApplication / Object ID
-	Owner       string      `bson:"owner"`       // User ID of the owner
-	JobTitle    string      `bson:"jobTitle"`    // The job application title
-	CompanyID   string      `bson:"companyID"`   // ID of the company the job application is for
-	CompanyName string      `bson:"companyName"` // Name of the company the job application is for
-	Notes       string      `bson:"notes"`       // Notes about the job application
-	EventIDs    []string    `bson:"eventIDs"`    // IDs of the events associated with the job application
-	People      []string    `bson:"people"`      // IDs of the people associated with the job application (eg hiring managers, recruiters, other applicants, etc)
-	Attrs       []Attribute `bson:"attrs"`       // Additional, user-defined attributes
+	ID             string      `bson:"_id"`            // JobApplication / Object ID
+	Owner          string      `bson:"owner"`          // User ID of the owner
+	JobTitle       string      `bson:"jobTitle"`       // The job application title
+	CompanyID      string      `bson:"companyID"`      // ID of the company the job application is for
+	CompanyName    string      `bson:"companyName"`    // Name of the company the job application is for
+	JobDescription string      `bson:"jobDescription"` // Description of the job application
+	URL            string      `bson:"url"`            // URL of the job application
+	Notes          string      `bson:"notes"`          // Notes about the job application
+	EventIDs       []string    `bson:"eventIDs"`       // IDs of the events associated with the job application
+	People         []string    `bson:"people"`         // IDs of the people associated with the job application (eg hiring managers, recruiters, other applicants, etc)
+	Attrs          []Attribute `bson:"attrs"`          // Additional, user-defined attributes
 }
